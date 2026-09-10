@@ -83,6 +83,25 @@ namespace Practica2
             }
         }
 
+        /*rueba 14
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("=== PRUEBA DE LECTURA POR TECLADO (EJERCICIO 14) ===");
+
+            Pila pila = new Pila();
+
+            // Opción 1 = Visualizaciones, Opción 2 = Suscriptores
+            int opcion = 2;
+
+            // Llama a la fábrica para llenar 20 suscriptores aleatorios
+            llenarFactory(pila, opcion);
+
+            // Llama a informarFactory, el cual te pedirá ingresar datos por teclado para buscar
+            informarFactory(pila, opcion);
+        }*/
+
+
+
         public static void Main(string[] args)
         {
             Console.WriteLine("=== EJECUCION DE LA PRACTICA 2 (EJERCICIO 22 - INTEGRACION) ===");
