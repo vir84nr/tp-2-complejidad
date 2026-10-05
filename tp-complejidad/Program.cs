@@ -46,6 +46,15 @@ namespace Practica2
             }
         }
 
+        // Ejercicio 9
+        public static void informar(IColeccionable coleccionable)
+        {
+            Console.WriteLine("Cantidad: " + coleccionable.cuantos());
+            Console.WriteLine("Minimo: " + coleccionable.minimo());
+            Console.WriteLine("Maximo: " + coleccionable.maximo());
+            Console.WriteLine();
+        }
+
         // Ejercicio 14
         public static void llenarFactory(IColeccionable coleccionable, int opcion)
         {
@@ -83,26 +92,59 @@ namespace Practica2
             }
         }
 
-        /*rueba 14
-        public static void Main(string[] args)
+        // Ejercicio 7
+        public static void mainEjercicio7()
         {
-            Console.WriteLine("=== PRUEBA DE LECTURA POR TECLADO (EJERCICIO 14) ===");
-
             Pila pila = new Pila();
+            Cola cola = new Cola();
+            Playlist playlist = new Playlist();
+            llenarSuscriptores(pila);
+            llenarSuscriptores(cola);
+            llenarSuscriptores(playlist);
+            imprimirElementos(pila);
+            imprimirElementos(cola);
+            imprimirElementos(playlist);
+        }
 
-            // Opción 1 = Visualizaciones, Opción 2 = Suscriptores
-            int opcion = 2;
+        // Ejercicio 9
+        public static void mainEjercicio9()
+        {
+            Pila pila = new Pila();
+            llenarSuscriptores(pila);
+            cambiarEstrategia(pila, new PorNombre());
+            informar(pila);
+            cambiarEstrategia(pila, new PorMesesSuscripcion());
+            informar(pila);
+            cambiarEstrategia(pila, new PorHorasVistas());
+            informar(pila);
+            cambiarEstrategia(pila, new PorId());
+            informar(pila);
+        }
 
-            // Llama a la fábrica para llenar 20 suscriptores aleatorios
+        // Ejercicio 14
+        public static void mainEjercicio14()
+        {
+            Pila pila = new Pila();
+            int opcion = 2; // 1 = Visualizaciones, 2 = Suscriptores
             llenarFactory(pila, opcion);
-
-            // Llama a informarFactory, el cual te pedirá ingresar datos por teclado para buscar
             informarFactory(pila, opcion);
-        }*/
+        }
+
+        // Ejercicio 18
+        public static void mainEjercicio18()
+        {
+            Canal canal = FabricaDeCanales.crearAleatorio();
+            for (int i = 0; i < 20; i++)
+            {
+                Suscriptor s = (Suscriptor)FabricaDeComparables.crearAleatorio(2);
+                canal.agregarObservador(s);
+            }
+            temporadaDeContenido(canal);
+        }
 
 
 
-        public static void Main(string[] args)
+        public static void mainEjercicio22()
         {
             Console.WriteLine("=== EJECUCION DE LA PRACTICA 2 (EJERCICIO 22 - INTEGRACION) ===");
 
@@ -135,6 +177,17 @@ namespace Practica2
                     Console.WriteLine();
                 }
             }
+        }
+        public static void Main(string[] args)
+        {
+            // pofe para probar hay que dejar sin comentar solo el ejercicio que queres probar
+            //mainEjercicio7();
+            // mainEjercicio9();
+             //mainEjercicio14();
+           // mainEjercicio18();
+           mainEjercicio22();
+            Console.WriteLine("Presioná una tecla para salir...");
+            Console.ReadKey();
         }
     }
 }
